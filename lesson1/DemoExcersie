@@ -1,0 +1,67 @@
+let scores = [85, 72, 91, 64, 78];
+
+let total = 0;
+let highest = 0;
+let lowest = 0;
+let passed = 0;
+let failed = 0;
+
+
+console.log("Student Scores");
+console.log(scores[0]);
+console.log(scores[1]);
+console.log(scores[2]);
+console.log(scores[3]);
+console.log(scores[4]);
+
+console.log("");
+
+for (let i = 0; i < scores.length; i++) {
+    let score = scores[i];
+    let grade;
+    let remarks;
+
+    if (score >= 90 && score <= 100) {
+        grade = "Excellent";
+    } else if (score >= 80) {
+        grade = "Very Good";
+    } else if (score >= 75) {
+        grade = "Good";
+    } else {
+        grade = ""; 
+    }
+
+    if (score >= 75) {
+        remarks = "Passed";
+        passed++;
+    } else {
+        remarks = "Failed";
+        failed++;
+    } 
+
+    
+    
+     console.log(
+    "Student " + (i + 1) + ": " + score + 
+    (grade ? " - " + grade : "") + 
+    " - " + remarks
+);
+
+    total += score;
+    if (score > highest) {
+        highest = score;
+    }
+    if (score < lowest || lowest === 0) {
+        lowest = score;
+    }
+} 
+
+console.log("");
+let average = total / scores.length;
+
+console.log("Total Score: " + total);
+console.log("Average Score: " + average);
+console.log("Highest Score: " + highest);
+console.log("Lowest Score: " + lowest);
+console.log("Passed: " + passed);
+console.log("Failed: " + failed);
